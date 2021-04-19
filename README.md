@@ -1,3 +1,3 @@
 # Simple_Calculator
 
-# Visual Studio Code + Metro Framework + C#
+Visual Studio Code + Metro Framework + C#
