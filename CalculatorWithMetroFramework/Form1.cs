@@ -37,22 +37,22 @@ namespace CalculatorWithMetroFramework
                 {
                     case 1:
                         result = num1 + num2;
-                        textBox.Text = result.ToString();
+                        textBox.Text = decimal.Round(result,5).ToString();
                         break;
 
                     case 2:
                         result = num1 - num2;
-                        textBox.Text = result.ToString();
+                        textBox.Text = decimal.Round(result, 5).ToString();
                         break;
 
                     case 3:
                         result = num1 * num2;
-                        textBox.Text = result.ToString();
+                        textBox.Text = decimal.Round(result, 5).ToString();
                         break;
 
                     case 4:
                         result = num1 / num2;
-                        textBox.Text = result.ToString();
+                        textBox.Text = decimal.Round(result, 5).ToString();
                         break; 
 
                     default:
@@ -124,12 +124,19 @@ namespace CalculatorWithMetroFramework
 
         private void btnAddition_Click(object sender, EventArgs e)
         {
-            if (textBox.Text.Trim() == string.Empty || textBox.Text.Trim() == "0")
-                MessageBox.Show("Enter Valid Number", "Error");
+            try
+            {
+                if (textBox.Text.Trim() == string.Empty || textBox.Text.Trim() == "0")
+                    MessageBox.Show("Enter Valid Number", "Error");
 
-            num1 = Convert.ToDecimal(textBox.Text);
-            operation = 1;
-            textBox.Text = "";
+                num1 = Convert.ToDecimal(textBox.Text);
+                operation = 1;
+                textBox.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnequal_Click(object sender, EventArgs e)
